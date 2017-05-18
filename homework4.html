@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div>請輸入年:<input type="text" id="year"></div>
+<div>請輸入月:<input type="text" id="month"></div>
+<div>請輸入日:<input type="text" id="day"></div>
+<button id="btn_ok">確定</button>
+<button id="btn_cancel">取消</button>
+<div id="answer"></div>
+	
+<script >
+$(document).ready(function () {
+	
+
+	$("#btn_ok").click(function(){
+		var year = $("#year").val();
+		var month = $("#month").val();
+		var length = parseInt(month);
+		var day = $("#day").val();
+		// console.log(month);
+		// console.log(day);
+		// var t = month+day;
+		// console.log(t);
+		var sum = 0;
+		var test = 0;
+
+		for(var i = 1;i<length;i++){
+			var days = new Date(year,i,0).getDate();
+			sum += days;
+			console.log("hi");
+			test = new Date(year,i,day).getDay();
+			console.log("zz"+test);
+		}
+		console.log(sum);
+		console.log(parseInt(day));
+		console.log(sum+parseInt(day));
+		var answer = parseInt(sum+parseInt(day));
+		document.getElementById("answer").innerHTML =year+"年的"+month+"月"+day+"日"+"是本年的第"+answer+"天"
+
+	})
+	
+});
+
+	
+
+</script>
+</body>
+</html>
